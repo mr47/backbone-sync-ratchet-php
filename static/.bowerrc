@@ -1,0 +1,6 @@
+{
+	"directory":"libs",
+	"scripts":{
+		"postinstall":"bower-requirejs -c app/config.js"
+	}
+}

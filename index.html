@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone demo</title>
+    <script data-main="static/config.js" src="static/libs/requirejs/require.js"></script>
+    <style type="text/css">
+        body{
+            font-family: Arial,sans-serif;
+        }
+        h1{
+            color:#565656;
+            margin-top: 0;
+            border-bottom: 1px solid #F3F3F3;
+        }
+        .items{
+            width: 100%;
+            min-height: 400px;
+        }
+        .item{
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            border: 1px solid #F3F3F3;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .actions{
+           border-top: 1px solid #F3F3F3;
+           height: 40px;
+           padding-top: 10px;
+           margin-top: 10px;
+        }
+        .actions a{
+            padding: 10px 15px;
+            background: #F3F3F3;
+            color: #000000;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .actions a:hover{
+            background: #a7a7a7;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <!-- Clear -->
+    </div>
+
+    <script type="text/template" id="item-template">
+        <div class="item">
+            <% if (name) {%>
+            <h1>Hi <%- name %></h1>
+            <span>Your age is <%- age %>,</span>
+            <span>your language is <%- lang %></span>
+            <div class="actions">
+                <a href="#" class="update">Update</a>
+                <a href="#" class="reload">Reload</a>
+                <a href="#" class="reset">Reset</a>
+            </div>
+            <%} else return void 0%>
+        </div>
+    </script>
+</body>
+</html>
