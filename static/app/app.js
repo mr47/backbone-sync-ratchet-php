@@ -4,15 +4,17 @@ define([
     "underscore",
     "backbone-sync"
 ],function(){
-
+	var TestNum = 1;
     // Create a websocket connection
-
-    Backbone.emulateJSON = true;
-
     var conn = new WebSocket("ws://localhost:8080");
 
     var IModel = Backbone.Model.extend({
-        connection: conn
+        connection: conn,
+		defaults:{
+			name : "John",
+			age  : "32",
+			lang : "nl"
+		}
     });
 
     var IView = Backbone.View.extend({
@@ -48,14 +50,14 @@ define([
     view = new IView({
         model:model
     });
-
+		
     var IWorkspace = Backbone.Router.extend({
         routes:{
 
         },
         initialize: function(){
             console.log("app > loaded");
-            this.render();
+		    this.render();
         },
         render: function(){
             model.fetch();

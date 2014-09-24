@@ -2,6 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Backbone demo</title>
+	
+	<link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
+	<script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
+	
     <script data-main="static/config.js" src="static/libs/requirejs/require.js"></script>
     <style type="text/css">
         body{
@@ -47,7 +51,8 @@
     <div class="items">
         <!-- Clear -->
     </div>
-
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
     <script type="text/template" id="item-template">
         <div class="item">
             <% if (name) {%>

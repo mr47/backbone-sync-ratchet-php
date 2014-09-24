@@ -15,7 +15,7 @@ class Chat implements MessageComponentInterface {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
         //load default value or get from db
-        $this->testObject = json_decode('{"name":"Dmitry","age":"22","lang":"en"}');
+        $conn->testObject = json_decode('{"name":"Dmitry","age":"22","lang":"en"}');
 
         echo "New connection! ({$conn->resourceId})\n";
     }
@@ -24,21 +24,19 @@ class Chat implements MessageComponentInterface {
         $message = json_decode($msg);
 
         if (isset($message)){
-
+              echo ($message->command)."(".$from->resourceId.") > ";
             if ($message->command=="read"){
-                echo $message->command." > ";
                 echo "reading data ... \n";
-                $this->testObject->success = true;
-                $from->send(json_encode($this->testObject));
+                $from->testObject->success = true;
+                $from->send(json_encode($from->testObject));
 
             }
 
             if ($message->command=="create"){
-              echo ($message->command)." > ";
               echo "set data ...\n";
-              $this->testObject = $message->data; // someting like update in db
+              $from->testObject = $message->data; // someting like update in db
               //$globalTestObject = $message->data;
-              $this->testObject->success = true;
+              $from->testObject->success = true;
               $from->send(json_encode($message->data));
             }
        }
